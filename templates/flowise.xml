@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<Container version="2">
+    <Name>Flowise</Name>
+    <Repository>flowiseai/flowise</Repository>
+    <Registry/>
+    <Network>bridge</Network>
+    <MyIP/>
+    <Shell>sh</Shell>
+    <Privileged>false</Privileged>
+    <Support/>
+    <Project/>
+    <Overview>Open source low-code tool for developers to build customized LLM orchestration flow and AI agents.</Overview>
+    <Category>Productivity:</Category>
+    <WebUI>http://[IP]:[PORT:3000]</WebUI>
+    <TemplateURL/>
+    <Icon/>
+    <ExtraParams/>
+    <PostArgs/>
+    <CPUset/>
+    <DateInstalled>1724662144</DateInstalled>
+    <DonateText/>
+    <DonateLink/>
+    <Requires/>
+    <Config Name="PORT" Target="PORT" Default="3000" Mode="" Description="The HTTP port Flowise runs on" Type="Variable" Display="always" Required="false" Mask="false">3000</Config>
+    <Config Name="HTTP Port" Target="3000" Default="3000" Mode="tcp" Description="The HTTP port Flowise runs on" Type="Port" Display="always" Required="true" Mask="false">3000</Config>
+    <Config Name="DATABASE_TYPE" Target="DATABASE_TYPE" Default="sqlite" Mode="" Description="Type of database to store the flowise data" Type="Variable" Display="always" Required="false" Mask="false">sqlite</Config>
+    <Config Name="DATABASE_PATH" Target="DATABASE_PATH" Default="" Mode="" Description="Location where database is saved (When DATABASE_TYPE is sqlite)" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="DATABASE_HOST" Target="DATABASE_HOST" Default="" Mode="" Description="Host URL or IP address (When DATABASE_TYPE is not sqlite)" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="DATABASE_PORT" Target="DATABASE_PORT" Default="" Mode="" Description="Database port (When DATABASE_TYPE is not sqlite)" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="DATABASE_USER" Target="DATABASE_USER" Default="" Mode="" Description="Database username (When DATABASE_TYPE is not sqlite)" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="DATABASE_PASSWORD" Target="DATABASE_PASSWORD" Default="" Mode="" Description="Database password (When DATABASE_TYPE is not sqlite)" Type="Variable" Display="always" Required="false" Mask="true"/>
+    <Config Name="DATABASE_NAME" Target="DATABASE_NAME" Default="" Mode="" Description="Database name (When DATABASE_TYPE is not sqlite)" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="DATABASE_SSL" Target="DATABASE_SSL" Default="false" Mode="" Description="Database SSL is required (When DATABASE_TYPE is not sqlite)" Type="Variable" Display="always" Required="false" Mask="false">false</Config>
+    <Config Name="STORAGE_TYPE" Target="STORAGE_TYPE" Default="local" Mode="" Description="Type of storage for uploaded files. default is local" Type="Variable" Display="advanced" Required="false" Mask="false">local</Config>
+    <Config Name="BLOB_STORAGE_PATH" Target="BLOB_STORAGE_PATH" Default="/root/.flowise/storage" Mode="" Description="Local folder path where uploaded files are stored when STORAGE_TYPE is local" Type="Variable" Display="advanced" Required="false" Mask="false">/root/.flowise/storage</Config>
+    <Config Name="Blob Storage Path" Target="/root/.flowise/storage" Default="" Mode="rw" Description="" Type="Path" Display="advanced" Required="false" Mask="false">/mnt/user/appdata/flowise/storage</Config>
+    <Config Name="S3_STORAGE_BUCKET_NAME" Target="S3_STORAGE_BUCKET_NAME" Default="" Mode="" Description="Bucket name to hold the uploaded files when STORAGE_TYPE is s3" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="S3_STORAGE_ACCESS_KEY_ID" Target="S3_STORAGE_ACCESS_KEY_ID" Default="" Mode="" Description="AWS Access Key" Type="Variable" Display="advanced" Required="false" Mask="true"/>
+    <Config Name="S3_STORAGE_SECRET_ACCESS_KEY" Target="S3_STORAGE_SECRET_ACCESS_KEY" Default="" Mode="" Description="AWS Secret Key" Type="Variable" Display="advanced" Required="false" Mask="true"/>
+    <Config Name="S3_STORAGE_REGION" Target="S3_STORAGE_REGION" Default="" Mode="" Description="Region for S3 bucket" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="SECRETKEY_PATH" Target="SECRETKEY_PATH" Default="" Mode="" Description="Location where encryption key (used to encrypt/decrypt credentials) is saved" Type="Variable" Display="advanced" Required="false" Mask="false">/mnt/cache/appdata/flowise/secrets</Config>
+    <Config Name="DISABLE_FLOWISE_TELEMETRY" Target="DISABLE_FLOWISE_TELEMETRY" Default="true" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="false">true</Config>
+    <Config Name="FLOWISE_USERNAME" Target="FLOWISE_USERNAME" Default="" Mode="" Description="Username to login" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="FLOWISE_PASSWORD" Target="FLOWISE_PASSWORD" Default="" Mode="" Description="Password to login" Type="Variable" Display="advanced" Required="false" Mask="true"/>
+    <Config Name="APIKEY_PATH" Target="APIKEY_PATH" Default="Flowise/packages/server" Mode="" Description="Location where API keys are saved" Type="Variable" Display="advanced" Required="false" Mask="false">/root/.flowise/keys</Config>
+    <Config Name="NUMBER_OF_PROXIES" Target="NUMBER_OF_PROXIES" Default="" Mode="" Description="Rate Limit Proxy" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="FLOWISE_FILE_SIZE_LIMIT" Target="FLOWISE_FILE_SIZE_LIMIT" Default="50mb" Mode="" Description="Maximum file size when uploading" Type="Variable" Display="advanced" Required="false" Mask="false">50mb</Config>
+    <Config Name="CORS_ORIGINS" Target="CORS_ORIGINS" Default="" Mode="" Description="The allowed origins for all cross-origin HTTP calls" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="IFRAME_ORIGINS" Target="IFRAME_ORIGINS" Default="" Mode="" Description="The allowed origins for iframe src embedding" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="DISABLE_CHATFLOW_REUSE" Target="DISABLE_CHATFLOW_REUSE" Default="" Mode="" Description="Disable caching the flow, allowing every interaction of the chatflow will be executed from scratch" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="SHOW_COMMUNITY_NODES" Target="SHOW_COMMUNITY_NODES" Default="" Mode="" Description="Display nodes that are created by community" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="Secrets Path" Target="/root/.flowise/secrets" Default="" Mode="rw" Description="Location where encryption key (used to encrypt/decrypt credentials) is saved" Type="Path" Display="advanced" Required="false" Mask="false">/mnt/cache/appdata/flowise/secrets</Config>
+    <Config Name="FLOWISE_SECRETKEY_OVERWRITE" Target="FLOWISE_SECRETKEY_OVERWRITE" Default="" Mode="" Description="Encryption key to be used instead of the key stored in SECRETKEY_PATH" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+    <Config Name="MODEL_LIST_CONFIG_JSON" Target="MODEL_LIST_CONFIG_JSON" Default="https://raw.githubusercontent.com/FlowiseAI/Flowise/main/packages/components/models.json" Mode="" Description="Link to load list of models from your models.json config file" Type="Variable" Display="advanced" Required="false" Mask="false">https://raw.githubusercontent.com/FlowiseAI/Flowise/main/packages/components/models.json</Config>
+    <Config Name="API Keys" Target="/root/.flowise/keys" Default="" Mode="rw" Description="" Type="Path" Display="advanced" Required="false" Mask="false">/mnt/cache/appdata/flowise/keys</Config>
+</Container>
