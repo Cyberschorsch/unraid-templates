@@ -13,7 +13,7 @@
     <Category>Productivity:</Category>
     <WebUI>http://[IP]:[PORT:3000]</WebUI>
     <TemplateURL/>
-    <Icon/>
+    <Icon>https://github.com/FlowiseAI/Flowise/blob/main/images/flowise.png?raw=true</Icon>
     <ExtraParams/>
     <PostArgs/>
     <CPUset/>
