@@ -2,7 +2,7 @@
 <Container version="2">
     <Name>Flowise</Name>
     <Repository>flowiseai/flowise</Repository>
-    <Registry/>
+    <Registry>https://hub.docker.com/r/flowiseai/flowise</Registry>
     <Network>bridge</Network>
     <MyIP/>
     <Shell>sh</Shell>
