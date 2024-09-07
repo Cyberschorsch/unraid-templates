@@ -10,7 +10,7 @@
     <Support>https://forums.unraid.net/topic/173449-support-cyberschorschs-templates-flowise/</Support>
     <Project>https://flowiseai.com/</Project>
     <Overview>Open source low-code tool for developers to build customized LLM orchestration flow and AI agents.</Overview>
-    <Category>AI:Productivity</Category>
+    <Category>AI: Productivity:</Category>
     <WebUI>http://[IP]:[PORT:3000]</WebUI>
     <TemplateURL/>
     <Icon>https://github.com/FlowiseAI/Flowise/blob/main/images/flowise.png?raw=true</Icon>
