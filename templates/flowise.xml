@@ -21,7 +21,6 @@
     <DonateText/>
     <DonateLink/>
     <Requires/>
-    <Config Name="PORT" Target="PORT" Default="3000" Mode="" Description="The HTTP port Flowise runs on" Type="Variable" Display="always" Required="false" Mask="false">3000</Config>
     <Config Name="HTTP Port" Target="3000" Default="3000" Mode="tcp" Description="The HTTP port Flowise runs on" Type="Port" Display="always" Required="true" Mask="false">3000</Config>
     <Config Name="DATABASE_TYPE" Target="DATABASE_TYPE" Default="sqlite" Mode="" Description="Type of database to store the flowise data" Type="Variable" Display="always" Required="false" Mask="false">sqlite</Config>
     <Config Name="DATABASE_PATH" Target="DATABASE_PATH" Default="" Mode="" Description="Location where database is saved (When DATABASE_TYPE is sqlite)" Type="Variable" Display="always" Required="false" Mask="false"/>
