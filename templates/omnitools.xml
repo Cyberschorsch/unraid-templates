@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<Container version="2">
+    <Name>Omnitools</Name>
+    <Repository>iib0011/omni-tools</Repository>
+    <Registry>https://hub.docker.com/r/iib0011/omni-tools</Registry>
+    <Network>bridge</Network>
+    <MyIP/>
+    <Shell>sh</Shell>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/iib0011/omni-tools/issues</Support>
+    <Project>https://github.com/iib0011/omni-tools</Project>
+    <Overview>Welcome to OmniTools, a self-hosted web app offering a variety of online tools to simplify everyday tasks. Whether you are coding, manipulating images/videos, PDFs or crunching numbers, OmniTools has you covered.</Overview>
+    <Category>Productivity: Tools:</Category>
+    <WebUI>http://[IP]:[PORT:80]</WebUI>
+    <TemplateURL/>
+    <Icon>https://github.com/iib0011/omni-tools/raw/main/src/assets/logo.png</Icon>
+    <ExtraParams/>
+    <PostArgs/>
+    <CPUset/>
+    <DateInstalled/>
+    <DonateText/>
+    <DonateLink/>
+    <Requires/>
+    <Config Name="WebUI" Target="80" Default="" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">8080</Config>
+</Container>
