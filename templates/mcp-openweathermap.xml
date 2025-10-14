@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>MCP-OpenWeatherMap</Name>
+  <Repository>ghcr.io/mcp-getgather/mcp-openweathermap</Repository>
+  <Registry>https://ghcr.io/mcp-getgather/mcp-openweathermap</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://forums.unraid.net/topic/173449-support-cyberschorschs-templates-flowise/</Support>
+  <Project>https://github.com/mcp-getgather/mcp-openweathermap</Project>
+  <Overview>Basic HTTP MCP server for a weather app using the OpenWeatherMap API.&#xD;
+&#xD;
+You will need a free API Key from https://openweathermap.org/.</Overview>
+  <Category>AI:</Category>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon>https://avatars.githubusercontent.com/u/1743227?s=200&v=4</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="OPEN_WEATHER_API_KEY" Target="OPEN_WEATHER_API_KEY" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">YOUR_API_KEY</Config>
+  <Config Name="API" Target="8000" Default="8000" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">8000</Config>
+  <TailscaleStateDir/>
+</Container>
