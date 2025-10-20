@@ -1,0 +1,41 @@
+  <?xml version="1.0"?>
+    <Container version="2">
+    <Name>MCP-Searxng</Name>
+    <Repository>isokoliuk/mcp-searxng</Repository>
+    <Registry>https://hub.docker.com/r/isokoliuk/mcp-searxng</Registry>
+    <Network>bridge</Network>
+    <MyIP/>
+    <Shell>sh</Shell>
+    <Privileged>false</Privileged>
+    <Support/>
+    <Project/>
+    <Overview>An MCP server implementation that integrates the SearXNG API, providing web search capabilities.&#xD;
+    &#xD;
+    Features&#xD;
+    &#xD;
+  Web Search: General queries, news, articles, with pagination.&#xD;
+  URL Content Reading: Advanced content extraction with pagination, section filtering, and heading extraction.&#xD;
+  Intelligent Caching: URL content is cached with TTL (Time-To-Live) to improve performance and reduce redundant requests.&#xD;
+  Pagination: Control which page of results to retrieve.&#xD;
+  Time Filtering: Filter results by time range (day, month, year).&#xD;
+  Language Selection: Filter results by preferred language.&#xD;
+  Safe Search: Control content filtering level for search results.&#xD;
+    &#xD;
+  IMPORTANT: &#xD;
+    Make sure, that your SearXNG Instance allows "json" as search format. Edit your settings.yaml in your SearXNG to check.</Overview>
+    <Category>AI:</Category>
+    <WebUI>3000</WebUI>
+    <TemplateURL/>
+    <Icon>https://avatars.githubusercontent.com/u/80454229</Icon>
+    <ExtraParams/>
+    <PostArgs/>
+    <CPUset/>
+    <DateInstalled/>
+    <DonateText/>
+    <DonateLink/>
+    <Requires/>
+    <Config Name="API" Target="3000" Default="" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">3000</Config>
+    <Config Name="Sear XNG Instance" Target="SEARXNG_URL" Default="" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="false">http://YOUR-SEARXNG-INSTANCE</Config>
+    <Config Name="MCP_HTTP_PORT" Target="MCP_HTTP_PORT" Default="3000" Mode="" Description="Best for: Web-based applications and remote MCP clients&#13;&#10;If not set, STDIO is used." Type="Variable" Display="always" Required="false" Mask="false">3000</Config>
+    <TailscaleStateDir/>
+    </Container>
