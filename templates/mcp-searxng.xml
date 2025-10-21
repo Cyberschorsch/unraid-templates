@@ -7,8 +7,8 @@
     <MyIP/>
     <Shell>sh</Shell>
     <Privileged>false</Privileged>
-    <Support/>
-    <Project/>
+    <Support>https://forums.unraid.net/topic/173449-support-cyberschorschs-templates-flowise/</Support>
+    <Project>https://github.com/ihor-sokoliuk/mcp-searxng</Project>
     <Overview>An MCP server implementation that integrates the SearXNG API, providing web search capabilities.&#xD;
     &#xD;
     Features&#xD;
