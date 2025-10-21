@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<Container version="2">
+    <Name>MCP-Nextcloud</Name>
+    <Repository>ghcr.io/cbcoutinho/nextcloud-mcp-server</Repository>
+    <Registry>https://ghcr.io/cbcoutinho/nextcloud-mcp-server</Registry>
+    <Network>bridge</Network>
+    <MyIP/>
+    <Shell>sh</Shell>
+    <Privileged>false</Privileged>
+    <Support>https://forums.unraid.net/topic/173449-support-cyberschorschs-templates-flowise/</Support>
+    <Project>https://github.com/cbcoutinho/nextcloud-mcp-server</Project>
+    <Overview>Enable AI assistants to interact with your Nextcloud instance.&#xD;
+        &#xD;
+        The Nextcloud MCP (Model Context Protocol) server allows Large Language Models like Claude, GPT, and Gemini to interact with your Nextcloud data through a secure API. Create notes, manage calendars, organize contacts, work with files, and more - all through natural language.&#xD;
+        &#xD;
+        Note&#xD;
+        &#xD;
+        Nextcloud has two ways to enable AI access: Nextcloud provides Context Agent, an AI agent backend that powers the Assistant app and allows AI to interact with Nextcloud apps like Calendar, Talk, and Contacts. Context Agent runs as an ExApp inside Nextcloud and also exposes an MCP server for external LLMs.&#xD;
+        &#xD;
+        This project (Nextcloud MCP Server) is a dedicated standalone MCP server designed specifically for external MCP clients like Claude Code and IDEs, with deep CRUD operations and OAuth support. It does not require any additional AI-features to be enabled in Nextcloud beyond the apps that you intend to interact with.&#xD;
+    </Overview>
+    <Category>AI: Productivity:</Category>
+    <WebUI/>
+    <TemplateURL/>
+    <Icon/>
+    <ExtraParams/>
+    <PostArgs>--transport streamable-http</PostArgs>
+    <CPUset/>
+    <DateInstalled/>
+    <DonateText/>
+    <DonateLink/>
+    <Requires/>
+    <Config Name="API" Target="8000" Default="" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false"/>
+    <Config Name="NEXTCLOUD_HOST" Target="NEXTCLOUD_HOST" Default="YOUR_NEXTCLOUD_INSTANCE" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="NEXTCLOUD_USERNAME" Target="NEXTCLOUD_USERNAME" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="NEXTCLOUD_PASSWORD" Target="NEXTCLOUD_PASSWORD" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="true"/>
+    <Config Name="NEXTCLOUD_OIDC_CLIENT_ID" Target="NEXTCLOUD_OIDC_CLIENT_ID" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="NEXTCLOUD_OIDC_CLIENT_SECRET" Target="NEXTCLOUD_OIDC_CLIENT_SECRET" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="NEXTCLOUD_OIDC_CLIENT_STORAGE" Target="NEXTCLOUD_OIDC_CLIENT_STORAGE" Default="" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="NEXTCLOUD_MCP_SERVER_URL" Target="NEXTCLOUD_MCP_SERVER_URL" Default="http://localhost:8000" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <TailscaleStateDir/>
+</Container>
