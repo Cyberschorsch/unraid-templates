@@ -1,5 +1,5 @@
-  <?xml version="1.0"?>
-    <Container version="2">
+<?xml version="1.0"?>
+  <Container version="2">
     <Name>MCP-Searxng</Name>
     <Repository>isokoliuk/mcp-searxng</Repository>
     <Registry>https://hub.docker.com/r/isokoliuk/mcp-searxng</Registry>
@@ -38,4 +38,4 @@
     <Config Name="Sear XNG Instance" Target="SEARXNG_URL" Default="" Mode="" Description="" Type="Variable" Display="always" Required="true" Mask="false">http://YOUR-SEARXNG-INSTANCE</Config>
     <Config Name="MCP_HTTP_PORT" Target="MCP_HTTP_PORT" Default="3000" Mode="" Description="Best for: Web-based applications and remote MCP clients&#13;&#10;If not set, STDIO is used." Type="Variable" Display="always" Required="false" Mask="false">3000</Config>
     <TailscaleStateDir/>
-    </Container>
+  </Container>
