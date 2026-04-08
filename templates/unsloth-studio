@@ -1,40 +1,44 @@
 <?xml version="1.0"?>
 <Container version="2">
   <Name>Unsloth-Studio</Name>
-  <Repository>unsloth/unsloth</Repository>
-  <Registry>https://hub.docker.com/r/unsloth/unsloth</Registry>
+  <Repository>luciowassill/unsloth-studio-wrapper</Repository>
+  <Registry>https://hub.docker.com/r/luciowassill/unsloth-studio-wrapper</Registry>
   <Network>bridge</Network>
   <MyIP/>
   <Shell>sh</Shell>
   <Privileged>false</Privileged>
   <Support>https://forums.unraid.net/topic/173449-support-cyberschorschs-templates/</Support>
-  <Project>https://github.com/unslothai/unsloth</Project>
+  <Project>https://github.com/Cyberschorsch/unsloth-studio-wrapper</Project>
   <ReadMe/>
-  <Overview/>
+  <Overview>Unsloth is an open-source web UI for running and training models.&#13;
+&#13;
+Note: This app uses a temporary wrapper to enable persistent data storage.&#13;
+&#13;
+See: https://github.com/unslothai/unsloth/issues/4396&#13;
+&#13;
+Once this has been resolved, this app will switch to the official repository and docker image.&#13;
+&#13;
+See the Project Page link for the wrapper repository.</Overview>
   <Category>AI:</Category>
   <WebUI>http://[IP]:[PORT:8000]/</WebUI>
   <TemplateURL/>
   <Icon>https://www.gravatar.com/avatar/a45c6f674175d3ee880235a68b2cbf78?s=120&amp;amp;r=g&amp;amp;d=404</Icon>
   <ExtraParams>--gpus all</ExtraParams>
   <PostArgs/>
-  <CPUset/t>
+  <CPUset/>
   <DonateText/>
   <DonateLink/>
   <Requires/>
   <Config Name="JUPYTER_PASSWORD" Target="JUPYTER_PASSWORD" Default="unsloth" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="true">unsloth</Config>
   <Config Name="JUPYTER_PORT" Target="JUPYTER_PORT" Default="8888" Mode="" Description="" Type="Variable" Display="always" Required="false" Mask="false">8888</Config>
-  <Config Name="Studio Port" Target="8000" Default="8000" Mode="tcp" Description="" Type="Port" Display="always" Required="true" Mask="false">8110</Config>
-  <Config Name="Jupyter Lab" Target="8888" Default="8888" Mode="tcp" Description="" Type="Port" Display="always" Required="true" Mask="false">8112</Config>
+  <Config Name="Studio Port" Target="8000" Default="8000" Mode="tcp" Description="" Type="Port" Display="always" Required="true" Mask="false">8000</Config>
+  <Config Name="Jupyter Lab" Target="8888" Default="8888" Mode="tcp" Description="" Type="Port" Display="always" Required="true" Mask="false">8888</Config>
   <Config Name="SSH access" Target="22" Default="2222" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">22222</Config>
-  <Config Name="Workspace" Target="/workspace/work/" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/unsloth-studio/work</Config>
-  <Config Name="HF Cache" Target="/workspace/.cache " Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/unsloth-studio/cache</Config>
-  <Config Name="Outputs" Target="/workspace/studio/outputs" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/unsloth-studio/outputs</Config>
-  <Config Name="Exports" Target="/workspace/studio/exports" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/unsloth-studio/exports</Config>
-  <Config Name="Auth" Target="/workspace/studio/auth" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/unsloth-studio/auth</Config>
+  <Config Name="HF Cache" Target="/data/studio/cache " Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/unsloth-studio/cache</Config>
+  <Config Name="Exports" Target="/data/studio/exports" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/unsloth-studio/exports</Config>
+  <Config Name="Auth" Target="/data/studio/auth" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/unsloth-studio/auth</Config>
+  <Config Name="Output" Target="/data/studio/outputs" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/unsloth-studio/outputs/</Config>
   <Config Name="USER_PASSWORD" Target="USER_PASSWORD" Default="unsloth" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="true">unsloth</Config>
   <Config Name="SSH_KEY" Target="SSH_KEY" Default="" Mode="" Description="SSH public key for authentication" Type="Variable" Display="advanced" Required="false" Mask="false"/>
-  <Config Name="Notebooks" Target="/workspace/notebooks" Default="" Mode="rw" Description="" Type="Path" Display="advanced" Required="false" Mask="false">/mnt/user/appdata/unsloth-studio/notebooks</Config>
-  <Config Name="PUID" Target="PUID" Default="" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="false">1001</Config>
-  <Config Name="PGID" Target="PGID" Default="" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="false">106</Config>
   <TailscaleStateDir/>
 </Container>
