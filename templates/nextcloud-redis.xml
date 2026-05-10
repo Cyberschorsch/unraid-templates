@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<Container version="2">
+    <Name>Nextcloud-Redis</Name>
+    <Repository>redis:7-alpine</Repository>
+    <Registry>https://hub.docker.com/_/redis</Registry>
+    <Network>nextcloud-net</Network>
+    <MyIP/>
+    <Shell>sh</Shell>
+    <Privileged>false</Privileged>
+    <Support>https://forums.unraid.net/topic/173449-support-cyberschorschs-templates-flowise/</Support>
+    <Project>https://redis.io/</Project>
+    <Overview>Redis cache and file-locking backend for Nextcloud.&#xD;
+        &#xD;
+        This container provides Redis to be used by the &quot;Nextcloud&quot; template for distributed memcache (memcache.distributed) and file locking (memcache.locking). It does NOT expose a host port - it is reachable only by other containers on the &quot;nextcloud-net&quot; Docker network.&#xD;
+        &#xD;
+        Setup:&#xD;
+        1. Create the network: docker network create nextcloud-net&#xD;
+        2. Generate a strong random password for Redis. Store it in your password manager.&#xD;
+        3. Set REDIS_PASSWORD below.&#xD;
+        4. Set the same value as REDIS_HOST_PASSWORD on the Nextcloud container.&#xD;
+    </Overview>
+    <Category>Cloud: Productivity:</Category>
+    <WebUI/>
+    <TemplateURL>https://raw.githubusercontent.com/Cyberschorsch/unraid-templates/main/templates/nextcloud-redis.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/docker-library/docs/master/redis/logo.png</Icon>
+    <ExtraParams/>
+    <PostArgs>redis-server --requirepass &quot;$REDIS_PASSWORD&quot; --appendonly yes</PostArgs>
+    <CPUset/>
+    <DateInstalled/>
+    <DonateText/>
+    <DonateLink/>
+    <Requires>The user-defined Docker network &quot;nextcloud-net&quot; must already exist on the host:&#xD;
+        docker network create nextcloud-net&#xD;
+    </Requires>
+    <Config Name="Persistence Path" Target="/data" Default="/mnt/user/appdata/nextcloud/redis" Mode="rw" Description="Redis AOF persistence directory" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/nextcloud/redis</Config>
+    <Config Name="REDIS_PASSWORD" Target="REDIS_PASSWORD" Default="" Mode="" Description="Strong random password for Redis. Must match REDIS_HOST_PASSWORD on the Nextcloud container." Type="Variable" Display="always" Required="true" Mask="true"/>
+</Container>

@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<Container version="2">
+    <Name>Nextcloud</Name>
+    <Repository>nextcloud:stable-apache</Repository>
+    <Registry>https://hub.docker.com/_/nextcloud</Registry>
+    <Network>nextcloud-net</Network>
+    <MyIP/>
+    <Shell>bash</Shell>
+    <Privileged>false</Privileged>
+    <Support>https://forums.unraid.net/topic/173449-support-cyberschorschs-templates-flowise/</Support>
+    <Project>https://nextcloud.com/</Project>
+    <Overview>Nextcloud Hub - the open-source self-hosted productivity platform.&#xD;
+        &#xD;
+        This template runs the official Nextcloud Apache image. It is designed to work alongside the companion templates &quot;Nextcloud-DB&quot; (MariaDB) and &quot;Nextcloud-Redis&quot; on a shared user-defined Docker network named &quot;nextcloud-net&quot;.&#xD;
+        &#xD;
+        Quick setup:&#xD;
+        1. Create the network once on the Unraid host: docker network create nextcloud-net&#xD;
+        2. Install Nextcloud-DB first (it runs as the database)&#xD;
+        3. Install Nextcloud-Redis (used for memcache + file locking)&#xD;
+        4. Install this Nextcloud template&#xD;
+        5. Front it with a reverse proxy (Nginx Proxy Manager / SWAG / Traefik) for HTTPS&#xD;
+        &#xD;
+        Pairs nicely with the standalone MCP-Nextcloud template in this same repo to expose Nextcloud APIs to AI assistants (OpenClaw, Claude Desktop, etc.) over Model Context Protocol.&#xD;
+    </Overview>
+    <Category>Cloud: Productivity:</Category>
+    <WebUI>http://[IP]:[PORT:8480]/</WebUI>
+    <TemplateURL>https://raw.githubusercontent.com/Cyberschorsch/unraid-templates/main/templates/nextcloud.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/linuxserver/docker-templates/master/linuxserver.io/img/nextcloud-logo.png</Icon>
+    <ExtraParams/>
+    <PostArgs/>
+    <CPUset/>
+    <DateInstalled/>
+    <DonateText/>
+    <DonateLink/>
+    <Requires>You must create a user-defined Docker network named &quot;nextcloud-net&quot; on the host before launching this template:&#xD;
+        docker network create nextcloud-net&#xD;
+        Also requires the Nextcloud-DB and Nextcloud-Redis containers from this same repo.&#xD;
+    </Requires>
+    <Config Name="WebUI Port" Target="80" Default="8480" Mode="tcp" Description="HTTP port that your reverse proxy will forward to" Type="Port" Display="always" Required="true" Mask="false">8480</Config>
+    <Config Name="App / Config Path" Target="/var/www/html" Default="/mnt/user/appdata/nextcloud/html" Mode="rw" Description="Nextcloud application + config (cache pool recommended)" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/nextcloud/html</Config>
+    <Config Name="Custom Apps" Target="/var/www/html/custom_apps" Default="/mnt/user/appdata/nextcloud/custom_apps" Mode="rw" Description="Persistent custom-installed Nextcloud apps" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/nextcloud/custom_apps</Config>
+    <Config Name="Themes" Target="/var/www/html/themes" Default="/mnt/user/appdata/nextcloud/themes" Mode="rw" Description="Persistent custom themes" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/nextcloud/themes</Config>
+    <Config Name="User Data" Target="/var/www/html/data" Default="/mnt/user/nextcloud-data" Mode="rw" Description="User file storage. A dedicated cache+array share is recommended; do NOT keep this in /appdata for production." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/nextcloud-data</Config>
+    <Config Name="MYSQL_HOST" Target="MYSQL_HOST" Default="nextcloud-db" Mode="" Description="Container name of the MariaDB instance on the same Docker network" Type="Variable" Display="always" Required="true" Mask="false">nextcloud-db</Config>
+    <Config Name="MYSQL_DATABASE" Target="MYSQL_DATABASE" Default="nextcloud" Mode="" Description="Database name (must match what was set on Nextcloud-DB)" Type="Variable" Display="always" Required="true" Mask="false">nextcloud</Config>
+    <Config Name="MYSQL_USER" Target="MYSQL_USER" Default="nextcloud" Mode="" Description="Database user (must match Nextcloud-DB)" Type="Variable" Display="always" Required="true" Mask="false">nextcloud</Config>
+    <Config Name="MYSQL_PASSWORD" Target="MYSQL_PASSWORD" Default="" Mode="" Description="Database password (must match the one you set on Nextcloud-DB)" Type="Variable" Display="always" Required="true" Mask="true"/>
+    <Config Name="REDIS_HOST" Target="REDIS_HOST" Default="nextcloud-redis" Mode="" Description="Container name of the Redis instance on the same Docker network" Type="Variable" Display="always" Required="true" Mask="false">nextcloud-redis</Config>
+    <Config Name="REDIS_HOST_PASSWORD" Target="REDIS_HOST_PASSWORD" Default="" Mode="" Description="Redis password (must match the one you set on Nextcloud-Redis)" Type="Variable" Display="always" Required="true" Mask="true"/>
+    <Config Name="NEXTCLOUD_ADMIN_USER" Target="NEXTCLOUD_ADMIN_USER" Default="admin" Mode="" Description="Initial admin username (only used at first install)" Type="Variable" Display="always" Required="true" Mask="false">admin</Config>
+    <Config Name="NEXTCLOUD_ADMIN_PASSWORD" Target="NEXTCLOUD_ADMIN_PASSWORD" Default="" Mode="" Description="Initial admin password (only used at first install — rotate after first login!)" Type="Variable" Display="always" Required="true" Mask="true"/>
+    <Config Name="NEXTCLOUD_TRUSTED_DOMAINS" Target="NEXTCLOUD_TRUSTED_DOMAINS" Default="" Mode="" Description="Space-separated list of hostnames Nextcloud will accept (e.g. 192.168.1.100 nc.example.com)" Type="Variable" Display="always" Required="true" Mask="false"/>
+    <Config Name="OVERWRITEPROTOCOL" Target="OVERWRITEPROTOCOL" Default="https" Mode="" Description="Protocol Nextcloud should believe it is served over (https when behind a reverse proxy)" Type="Variable" Display="always" Required="false" Mask="false">https</Config>
+    <Config Name="OVERWRITEHOST" Target="OVERWRITEHOST" Default="" Mode="" Description="Public hostname Nextcloud should believe it is served as (e.g. nc.example.com)" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="TRUSTED_PROXIES" Target="TRUSTED_PROXIES" Default="" Mode="" Description="IP address of your reverse proxy (e.g. 192.168.1.50 if NPM lives there)" Type="Variable" Display="always" Required="false" Mask="false"/>
+    <Config Name="PHP_MEMORY_LIMIT" Target="PHP_MEMORY_LIMIT" Default="512M" Mode="" Description="PHP memory limit per request" Type="Variable" Display="advanced" Required="false" Mask="false">512M</Config>
+    <Config Name="PHP_UPLOAD_LIMIT" Target="PHP_UPLOAD_LIMIT" Default="10G" Mode="" Description="Maximum upload size per file" Type="Variable" Display="advanced" Required="false" Mask="false">10G</Config>
+</Container>

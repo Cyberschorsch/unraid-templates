@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<Container version="2">
+    <Name>Nextcloud-DB</Name>
+    <Repository>mariadb:lts</Repository>
+    <Registry>https://hub.docker.com/_/mariadb</Registry>
+    <Network>nextcloud-net</Network>
+    <MyIP/>
+    <Shell>bash</Shell>
+    <Privileged>false</Privileged>
+    <Support>https://forums.unraid.net/topic/173449-support-cyberschorschs-templates-flowise/</Support>
+    <Project>https://mariadb.org/</Project>
+    <Overview>MariaDB LTS database for Nextcloud.&#xD;
+        &#xD;
+        This is a database container designed to be paired with the &quot;Nextcloud&quot; template in this same repo. It does NOT expose a host port - it is reachable only by other containers on the &quot;nextcloud-net&quot; Docker network.&#xD;
+        &#xD;
+        Required setup before launch:&#xD;
+        1. Create the network on the Unraid host: docker network create nextcloud-net&#xD;
+        2. Generate two strong random passwords - one for the MYSQL root user, one for the &quot;nextcloud&quot; user. Store them in your password manager.&#xD;
+        3. Set both passwords in the variables below.&#xD;
+        4. Set the same MYSQL_PASSWORD on the Nextcloud container.&#xD;
+        &#xD;
+        Storage tip: keep this on a fast SSD/NVMe cache pool with cache=only. The DB is small (a few hundred MB) but writes a lot.&#xD;
+    </Overview>
+    <Category>Cloud: Productivity:</Category>
+    <WebUI/>
+    <TemplateURL>https://raw.githubusercontent.com/Cyberschorsch/unraid-templates/main/templates/nextcloud-db.xml</TemplateURL>
+    <Icon>https://raw.githubusercontent.com/docker-library/docs/master/mariadb/logo.png</Icon>
+    <ExtraParams>--health-cmd=&quot;healthcheck.sh --connect --innodb_initialized&quot; --health-interval=10s --health-timeout=5s --health-retries=5</ExtraParams>
+    <PostArgs>--transaction-isolation=READ-COMMITTED --binlog-format=ROW --innodb-file-per-table=1 --skip-innodb-read-only-compressed</PostArgs>
+    <CPUset/>
+    <DateInstalled/>
+    <DonateText/>
+    <DonateLink/>
+    <Requires>The user-defined Docker network &quot;nextcloud-net&quot; must already exist on the host:&#xD;
+        docker network create nextcloud-net&#xD;
+    </Requires>
+    <Config Name="Database Path" Target="/var/lib/mysql" Default="/mnt/user/appdata/nextcloud/db" Mode="rw" Description="MariaDB data directory (cache pool recommended)" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/nextcloud/db</Config>
+    <Config Name="MYSQL_ROOT_PASSWORD" Target="MYSQL_ROOT_PASSWORD" Default="" Mode="" Description="Root password for the MariaDB instance (generate a strong random string)" Type="Variable" Display="always" Required="true" Mask="true"/>
+    <Config Name="MYSQL_DATABASE" Target="MYSQL_DATABASE" Default="nextcloud" Mode="" Description="Database name to create on first launch" Type="Variable" Display="always" Required="true" Mask="false">nextcloud</Config>
+    <Config Name="MYSQL_USER" Target="MYSQL_USER" Default="nextcloud" Mode="" Description="Application database user to create" Type="Variable" Display="always" Required="true" Mask="false">nextcloud</Config>
+    <Config Name="MYSQL_PASSWORD" Target="MYSQL_PASSWORD" Default="" Mode="" Description="Password for the &quot;nextcloud&quot; user (must match MYSQL_PASSWORD on the Nextcloud container)" Type="Variable" Display="always" Required="true" Mask="true"/>
+</Container>
