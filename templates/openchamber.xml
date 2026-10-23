@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>openchamber</Name>
+  <Repository>arranhs/openchamber</Repository>
+  <Registry>https://hub.docker.com/r/arranhs/openchamber</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <MyMAC/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support/>
+  <Project>https://github.com/openchamber/openchamber</Project>
+  <ReadMe/>
+  <Overview>OpenChamber is an open-source workspace for running and reviewing AI coding work.</Overview>
+  <Category>AI:</Category>
+  <WebUI>http://[IP]:[PORT:3000]/</WebUI>
+  <TemplateURL/>
+  <Icon>https://github.com/Cyberschorsch/unraid-templates/blob/2301afeee9e0355edaeca0ae2c9893b38f72748e/assets/openchamber-logo.jpg?raw=true</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+  <Requires/>
+  <Config Name="OPENCHAMBER_UI_PASSWORD" Target="OPENCHAMBER_UI_PASSWORD" Default="default" Mode="" Description="Default password is 'default'" Type="Variable" Display="always" Required="false" Mask="true">default</Config>
+  <Config Name="Config" Target="/home/openchamber/.config/opencode" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/openchamber/config</Config>
+  <Config Name="Data" Target="/home/openchamber/.config/openchamber" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/openchamber/data</Config>
+  <Config Name="Workspaces" Target="/home/openchamber/workspaces" Default="" Mode="rw" Description="" Type="Path" Display="always" Required="false" Mask="false">/mnt/cache/appdata/openchamber/workspaces</Config>
+  <Config Name="Webui" Target="3000" Default="" Mode="tcp" Description="" Type="Port" Display="always" Required="false" Mask="false">3500</Config>
+  <TailscaleStateDir/>
+</Container>
